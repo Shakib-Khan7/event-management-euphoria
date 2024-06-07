@@ -1,0 +1,9 @@
+.banner{
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat :repeat-x;
+    height: 100vh; /* Full height */
+    width: 100%; 
+    
+}
