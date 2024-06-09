@@ -7,6 +7,8 @@ import banner2 from '../../assets/yannis-papanastasopoulos-yWF2LLan-_o-unsplash.
 import BannerText from '../../components/BannerText';
 import LatestEvents from '../../components/LatestEvents';
 import { FaGolfBall, FaRegHandshake } from 'react-icons/fa';
+import AboutUsBriefly from '../../components/AboutUsBriefly';
+
 
 const Home = () => {
     return (
@@ -73,82 +75,21 @@ const Home = () => {
 
 
 
-            <div className='w-full bg-slate-200 grid grid-cols-1 lg:grid-cols-2'>
+            <div className='w-full bg-slate-100 grid grid-cols-1 lg:grid-cols-2 py-32'>
                 <div className='text-center'>
-                    WE ARE EUPHORIAeafaf
+                    <h1 className='tracking-widest text-2xl font-poppins mb-9 text-slate-500'>WE ARE EUPHORIA</h1>
+                    <h1 className=' text-3xl lg:text-7xl text-slate-900 tracking-wider font-poppins'><span className='text-7xl font-bold text-slate-800 mr-3 '>No.1</span>Entertainment <br /> Event Management</h1>
+                    <p className='px-20 mt-10 text-slate-600 text-xl mb-5'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam rem illum repudiandae vero deleniti ducimus possimus unde voluptatibus assumenda iure cumque, eaque ex excepturi ipsum doloremque non quasi molestias.</p>
                 </div>
 
 
-                <div className=''>
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
-                        <div className="card w-96 shadow-xl bg-white text-black hover:bg-orange-400 transition duration-500 cursor-pointer">
-                            <figure className="px-10 pt-10 text-5xl">
-                                <FaRegHandshake className='text-orange-600'></FaRegHandshake>
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                
-                            </div>
-                        </div>
-                        <div className="card w-96 shadow-xl bg-white text-black hover:bg-orange-400 transition duration-500 cursor-pointer">
-                            <figure className="px-10 pt-10 text-5xl">
-                                <FaGolfBall className='text-orange-500'></FaGolfBall>
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                
-                            </div>
-                        </div>
-                        <div className="card w-96 shadow-xl">
-                            <figure className="px-10 pt-10">
-                                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                
-                            </div>
-                        </div>
-                        <div className="card w-96 shadow-xl">
-                            <figure className="px-10 pt-10">
-                                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                
-                            </div>
-                        </div>
-                        <div className="card w-96 shadow-xl">
-                            <figure className="px-10 pt-10">
-                                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                
-                            </div>
-                        </div>
-                        <div className="card w-96 shadow-xl">
-                            <figure className="px-10 pt-10">
-                                <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                
-                            </div>
-                        </div>
-
-
-
-
-                    </div>
-                </div>
+                <AboutUsBriefly></AboutUsBriefly>
 
             </div>
+
+
+
+           
 
 
 

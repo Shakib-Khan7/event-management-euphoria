@@ -10,7 +10,11 @@ export default {
       backgroundColor: {
         'custom-white': 'white', // Add custom color
       },
+      fontFamily : {
+        poppins :['Poppins','sans-serif',]
+      }
     },
+   
   },
   plugins: [
     require('daisyui'),
