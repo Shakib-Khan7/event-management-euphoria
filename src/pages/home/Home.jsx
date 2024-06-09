@@ -8,9 +8,23 @@ import BannerText from '../../components/BannerText';
 import LatestEvents from '../../components/LatestEvents';
 import { FaGolfBall, FaRegHandshake } from 'react-icons/fa';
 import AboutUsBriefly from '../../components/AboutUsBriefly';
+import Services from '../../components/Services';
+import { useLoaderData } from 'react-router-dom';
 
 
 const Home = () => {
+
+    const myServices = useLoaderData()
+    console.log(myServices);
+
+
+
+
+
+
+
+
+
     return (
         <div className=''>
 
@@ -87,9 +101,37 @@ const Home = () => {
 
             </div>
 
+            <div>
+                <h2 className='text-center text-5xl mb-10 tracking-wider'>Our Services</h2>
+                <h2 className='text-7xl'>Euphoria <span>Expertise</span></h2>
 
 
-           
+            <div className='grid lg:grid-cols-2 lg:w-6/12 mx-auto h-full gap-10'>
+                {
+                    myServices.events.map(myService => 
+                        <Services key={myService.id}
+
+                        service ={myService}
+                        
+                        
+                        ></Services>
+
+
+                    )
+                }
+                
+            </div>
+
+            </div>
+            
+
+
+
+
+
+
+
+
 
 
 

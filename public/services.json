@@ -1,0 +1,83 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "type": "Concerts and Music Festivals",
+        "title": "Rock Fest 2024",
+        "description": "Join us for an unforgettable night with top rock bands from around the world.",
+        "date": "2024-07-15",
+        "time": "18:00",
+        "venue": "Central Park",
+        "city": "New York",
+        "organizer": "Rock Nation",
+        "img":"https://i.ibb.co/BsDVqvs/colin-lloyd-W6-txbgkke-U-unsplash.jpg",
+        "ticket_price": 150
+      },
+      {
+        "id": 2,
+        "type": "Theater and Performing Arts",
+        "title": "Shakespeare in the Park",
+        "description": "A modern take on Shakespeare's classic play, 'Romeo and Juliet'.",
+        "date": "2024-08-01",
+        "time": "20:00",
+        "venue": "The Globe Theater",
+        "city": "London",
+        "organizer": "City Theater Group",
+        "img": "https://i.ibb.co/BBFKF6D/giusi-borrasi-e-H-IOSe-I0-Yk-unsplash.jpg",
+        "ticket_price": 75
+      },
+      {
+        "id": 3,
+        "type": "Film Screenings and Premieres",
+        "title": "Premiere of 'Space Odyssey'",
+        "description": "Be the first to watch the new sci-fi thriller that everyone is talking about.",
+        "date": "2024-06-20",
+        "time": "19:00",
+        "venue": "Hollywood Cinema",
+        "city": "Los Angeles",
+        "organizer": "CineWorld",
+        "img": "https://i.ibb.co/19cbgMb/merch-husey-EEZgog4-AS5-M-unsplash.jpg",
+        "ticket_price": 50
+      },
+      {
+        "id": 4,
+        "type": "Comedy Shows",
+        "title": "Laugh Out Loud with John Doe",
+        "description": "An evening of laughter with the hilarious John Doe.",
+        "date": "2024-09-10",
+        "time": "21:00",
+        "venue": "Comedy Club",
+        "city": "Chicago",
+        "organizer": "Laugh Factory",
+        "img":"https://i.ibb.co/Fm57kMy/stewart-munro-H5wn41x-Knfs-unsplash.jpg",
+        "ticket_price": 40
+      },
+      {
+        "id": 5,
+        "type": "Sports Events",
+        "title": "Champions League Final",
+        "description": "Watch the two best teams in Europe battle it out for the Champions League trophy.",
+        "date": "2024-05-30",
+        "time": "20:00",
+        "venue": "Wembley Stadium",
+        "city": "London",
+        "organizer": "UEFA",
+        "img":"https://i.ibb.co/TLQZnWQ/matthieu-petiard-Pf6e3o0-GL4-M-unsplash.jpg",
+        "ticket_price": 200
+      },
+      {
+        "id": 6,
+        "type": "New Year Celebration",
+        "title": "Gourmet Food & Wine Festival",
+        "description": "Indulge in a selection of gourmet foods and wines from around the world.",
+        "date": "2024-06-25",
+        "time": "12:00",
+        "venue": "Riverside Park",
+        "city": "San Francisco",
+        "organizer": "Culinary Delights",
+        "img":"https://i.ibb.co/kDrPQDN/kristen-colada-adams-cyf35bgac-TY-unsplash.jpg",
+        "ticket_price": 80
+      }
+    ]
+  }
+  
