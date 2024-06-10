@@ -33,7 +33,7 @@ const Home = () => {
 
             <div className="carousel w-full relative ">
                 <div id="slide1" className="carousel-item relative w-full">
-                    <div className='banner' style={{ backgroundImage: `url(${banner})` }}>
+                    <div className='banner text-white' style={{ backgroundImage: `url(${banner})` }}>
                         <Navbar></Navbar>
                         <center className='my-auto'>
                             <BannerText></BannerText>
