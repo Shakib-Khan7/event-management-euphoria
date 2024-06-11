@@ -1,17 +1,19 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { AuthContex } from '../../providers/AuthProviders';
+import { FaArrowRight, FaCalendarAlt, FaMapMarkerAlt, FaRegCalendar, FaRegClock } from 'react-icons/fa';
 
 const EventDetails = () => {
 
     const [events, setEvents] = useState([])
     const [selectedEvent, setSelectedEvent] = useState()
 
-    const {handleBooking} = useContext(AuthContex)
+    const { handleBooking } = useContext(AuthContex)
 
     const eventID = useParams()
-   
+
 
     useEffect(() => {
         fetch('/services.json')
@@ -30,7 +32,7 @@ const EventDetails = () => {
     }, [events, eventID.id]);
 
 
-    
+
 
 
 
@@ -57,7 +59,7 @@ const EventDetails = () => {
 
     return (
         <div>
-            <div className='bg-orange-500 text-white'>
+            <div className='bg-gradient-to-bl from-orange-300 to-orange-600 shadow-md'>
                 <Navbar></Navbar>
             </div>
 
@@ -68,26 +70,48 @@ const EventDetails = () => {
             </div>
 
 
-            <main className='grid lg:grid-cols-2'>
-                <div>
+            <main className='grid lg:grid-cols-2 mt-20'>
+                <div className='lg:ml-20'>
 
                     <h2 className='text-5xl'></h2>
-                    <div className='lg:flex'>
-                        <img className='h-96 lg:h-full lg:w-96 mb-10 rounded' src={selectedEvent.img} alt="" />
+                    <div className='lg:flex items-center'>
+                        <img className='h-96 lg:h-full lg:w-96 mb-10 rounded-lg mx-auto' src={selectedEvent.img} alt="" />
 
-                        <p>{selectedEvent.full_description}</p>
+                        <div>
+                            <p className='text-3xl ml-10 font-poppins font-bold mb-10'>{selectedEvent.title}</p>
+                        <p className='text-xl lg:ml-10'>"{selectedEvent.full_description}"</p>
+                        </div>
                     </div>
 
-                    <div className='grid grid-cols-3 gap-10'>
-                        <div className='h-32 w-full bg-slate-200'>
-
+                    <div className='grid lg:grid-cols-3 gap-5 '>
+                        <div className='h-20 w-full bg-slate-100 flex items-center font-poppins rounded-xl '>
+                            <div className='h-12 w-12 bg-orange-300 ml-5  rounded-full relative'>
+                                <FaRegCalendar className='text-2xl text-white absolute left-3 top-2' ></FaRegCalendar>
+                            </div>
+                            <div className='ml-4'>
+                                <h2 className='text-md font-semibold text-slate-500 tracking-wider'>Event Date</h2>
+                                <p className='text-md font-bold tracking-wider'>{selectedEvent.date}</p>
+                            </div>
                         </div>
-                        <div className='h-32 w-full bg-slate-200'>
-
+                        <div className='h-20 w-full bg-slate-100 flex items-center font-poppins rounded-xl '>
+                            <div className='h-12 w-12 bg-orange-300 ml-5  rounded-full relative'>
+                                <FaRegClock className='text-2xl text-white absolute left-3 top-2' ></FaRegClock>
+                            </div>
+                            <div className='ml-4'>
+                                <h2 className='text-md font-semibold text-slate-500 tracking-wider'>Event Time</h2>
+                                <p className='text-md font-bold tracking-wider'>{selectedEvent.time}  [EST]</p>
+                            </div>
                         </div>
-                        <div className='h-32 w-full bg-slate-200'>
-
+                        <div className='h-20 w-full bg-slate-100 flex items-center font-poppins rounded-xl '>
+                            <div className='h-12 w-12 bg-orange-300 ml-5  rounded-full relative'>
+                                <FaMapMarkerAlt className='text-2xl text-white absolute left-3 top-2' ></FaMapMarkerAlt>
+                            </div>
+                            <div className='ml-4'>
+                                <h2 className='text-md font-semibold text-slate-500 tracking-wider'>Event Location</h2>
+                                <p className='text-md font-bold tracking-wider'>{selectedEvent.venue}</p>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -97,13 +121,76 @@ const EventDetails = () => {
 
 
 
-            {/* booking part below */}
+                {/* booking part below */}
 
 
 
 
                 <div>
-                    <button onClick={()=>handleBooking(selectedEvent)} className='btn btn-warning'>Book Now</button>
+                    <div className="card w-2/4 h-3/4 border-b-1 rounded-none mx-auto bg-slate-100 mt-auto hidden lg:block ">
+                        <div className="card-body ">
+                            <div className="card-title">
+
+                                <div className='bg-yellow-400 text-3xl p-6 rounded-full mr-4'>
+                                    <FaMapMarkerAlt></FaMapMarkerAlt>
+                                </div>
+                                <div>
+                                    <p className='text-slate-400'>event location</p>
+                                    <p className='text-3xl font-bold'>{selectedEvent.venue}</p>
+                                </div>
+
+
+                            </div>
+                            <div className='flex items-center mt-4 text-lg'>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
+                                </div>
+                                <p className='ml-4'>City : {selectedEvent.city}</p>
+                            </div>
+                            <div className='flex items-center mt-4 text-lg'>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
+                                </div>
+                                <p className='ml-4'>Date : {selectedEvent.date}</p>
+                            </div>
+                            <div className='flex items-center mt-4 text-lg'>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
+                                </div>
+                                <p className='ml-4'>Time : {selectedEvent.time} [EST]</p>
+                            </div>
+                            <div className='flex items-center mt-4 text-lg'>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
+                                </div>
+                                <p className='ml-4'>Ticket Price : {selectedEvent.ticket_price}$</p>
+                            </div>
+
+
+                        </div>
+                        <button onClick={() => handleBooking(selectedEvent)} className='btn btn-warning w-full absolute bottom-0'>Book Now</button>
+
+                    </div>
+                    <button onClick={() => handleBooking(selectedEvent)} className='btn btn-warning lg:hidden w-full mt-5'>Book Now</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
 
             </main>

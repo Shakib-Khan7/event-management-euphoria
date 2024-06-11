@@ -30,10 +30,24 @@ const AuthProviders = ({children}) => {
         console.log(newBooking);
     }
 
+    const handleCancelBooking = (event) =>{
+        let newBookings = [];
+
+        const remaining = booked.filter(e=>e.id !== event.id )
+        setBooked(remaining)
+    }
 
 
 
-    const authInfo = {booked,handleBooking}
+
+
+
+
+
+
+
+
+    const authInfo = {booked,handleBooking,handleCancelBooking}
 
     return (
         <AuthContex.Provider value={authInfo}>

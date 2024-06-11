@@ -5,7 +5,7 @@ const AboutUsBriefly = () => {
     return (
         <div>
             <div className=''>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center lg:w-2/3'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-center lg:w-3/4'>
                     <div className='w-full border text-center p-8 h-72  bg-white cursor-pointer hover:bg-gradient-to-br from-orange-200 to-orange-600 transform hover:scale-105 transition-all duration-300 hover:z-50 hover:text-white'>
 
 
