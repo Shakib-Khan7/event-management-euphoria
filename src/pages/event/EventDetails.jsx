@@ -67,8 +67,8 @@ const EventDetails = () => {
                 <img className='w-full h-[500px] opacity-50' src="https://i.ibb.co/gDrhqVt/andreas-gabler-XEW-Wd4240c-unsplash.jpg" alt="" />
 
                 <div className='text-white'>
-                <p className='absolute top-20 left-[35%] lg:top-32 lg:left-[42%] text-2xl tracking-[12px]'>EVENT SINGLE</p>
-                <h2 className=' absolute top-52 left-5 lg:top-[40%] lg:left-[30%] text-3xl lg:text-6xl'>EUPHORIA <span className='text-orange-500 font-bold'>EVENT DETAILS</span></h2>
+                    <p className='absolute top-20 left-[35%] lg:top-32 lg:left-[42%] text-2xl tracking-[12px]'>EVENT SINGLE</p>
+                    <h2 className=' absolute top-52 left-5 lg:top-[40%] lg:left-[30%] text-3xl lg:text-6xl'>EUPHORIA <span className='text-orange-500 font-bold'>EVENT DETAILS</span></h2>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@ const EventDetails = () => {
 
                         <div>
                             <p className='text-3xl ml-10 font-poppins font-bold mb-10'>{selectedEvent.title}</p>
-                        <p className='text-xl lg:ml-10'>"{selectedEvent.full_description}"</p>
+                            <p className='text-xl lg:ml-10'>"{selectedEvent.full_description}"</p>
                         </div>
                     </div>
 
@@ -171,11 +171,39 @@ const EventDetails = () => {
 
 
                         </div>
-                        <button onClick={() => handleBooking(selectedEvent)} className='btn btn-warning w-full absolute bottom-0'>Book Now</button>
+                        {/* Open the modal using document.getElementById('ID').showModal() method */}
+                        <button className="btn btn-warning w-full absolute bottom-0" onClick={() => document.getElementById('my_modal_5').showModal()}>Book Now</button>
+                        <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
+                            <div className="modal-box">
+                                <h3 className="font-bold text-lg">Do You want to confirm your booking?</h3>
+                                
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        {/* if there is a button in form, it will close the modal */}
+                                        <button className="btn mr-3">Cancel</button>
+                                        <button onClick={() => handleBooking(selectedEvent)} className="btn btn-warning">Confirm</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
+                        {/* <button onClick={() => handleBooking(selectedEvent)} className='btn btn-warning w-full absolute bottom-0'>Book Now</button> */}
 
                     </div>
-                    <button onClick={() => handleBooking(selectedEvent)} className='btn btn-warning lg:hidden w-full mt-5'>Book Now</button>
-
+                    {/* <button onClick={() => handleBooking(selectedEvent)} className='btn btn-warning lg:hidden w-full mt-5'>Book Now</button> */}
+                    <button className="btn btn-warning lg:hidden w-full mt-5" onClick={() => document.getElementById('my_modal_6').showModal()}>Book Now</button>
+                        <dialog id="my_modal_6" className="modal modal-middle sm:modal-middle">
+                            <div className="modal-box">
+                                <h3 className="font-bold text-lg">Do You want to confirm your booking?</h3>
+                                
+                                <div className="modal-action">
+                                    <form method="dialog">
+                                        {/* if there is a button in form, it will close the modal */}
+                                        <button className="btn mr-3">Cancel</button>
+                                        <button onClick={() => handleBooking(selectedEvent)} className="btn btn-warning">Confirm</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
 
 
 

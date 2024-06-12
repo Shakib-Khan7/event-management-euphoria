@@ -48,7 +48,12 @@ const Navbar = () => {
                            
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <Link to='/' className='ml-2' >
+                    <div>
+                        <p className='tracking-[8px] text-2xl'>EUPHORIA</p>
+                        <p className='text-yellow-500 font-poppins text-sm tracking-widest'>EVENT MANAGEMENT</p>
+                    </div>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -74,7 +79,7 @@ const Navbar = () => {
                     </div>
                     }
                     {!user ? <Link to='/login'>
-                    <button className='btn w-28'>Login</button>
+                    <button className='btn w-28 btn-warning'>Login</button>
                     </Link> : <button onClick={handleLogOut} className='btn w-28'>
                         Sign Out
                         

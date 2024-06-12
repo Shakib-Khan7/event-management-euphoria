@@ -6,7 +6,7 @@ const MyBookings = ({ bookedEvent }) => {
 
     const { id, city, date, description, img, organizer, ticket_price, time, title, type, venue } = bookedEvent
 
-    const {handleCancelBooking} = useContext(AuthContex)
+    const { handleCancelBooking } = useContext(AuthContex)
 
 
 
@@ -19,7 +19,7 @@ const MyBookings = ({ bookedEvent }) => {
                         <figure className='lg:h-96 rounded'><img src={img} className='lg:w-64 rounded' alt="Movie" /></figure>
                         <div className="card-body">
                             <h2 className="card-title text-3xl font-poppins">{title}</h2>
-                            
+
                             <div className='flex items-center'>
                                 <FaRegBuilding className='text-orange-500'></FaRegBuilding>
                                 <p className='ml-4 text-lg'>Organizer : {organizer}</p>
@@ -30,9 +30,24 @@ const MyBookings = ({ bookedEvent }) => {
                                 <p className='ml-4 text-lg'>Ticket Price : {ticket_price}$</p>
                             </div>
                             <div className="card-actions justify-center mt-auto">
-                                <button onClick={()=>handleCancelBooking(bookedEvent)} className='btn btn-warning w-full'>
+                                {/* Open the modal using document.getElementById('ID').showModal() method */}
+                                <button className="btn btn-warning w-full" onClick={() => document.getElementById('my_modal_5').showModal()}>Cancel Booking</button>
+                                <dialog id="my_modal_5" className="modal modal-middle sm:modal-middle">
+                                    <div className="modal-box">
+                                        <h3 className="font-bold text-lg">Are you sure?</h3>
+                                        
+                                        <div className="modal-action">
+                                            <form method="dialog">
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn mr-3 w-20">Close</button>
+                                                <button onClick={()=>handleCancelBooking(bookedEvent)} className="btn btn-warning w-20">Yes</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </dialog>
+                                {/* <button onClick={()=>handleCancelBooking(bookedEvent)} className='btn btn-warning w-full'>
                                     Cancel booking
-                                </button>
+                                </button> */}
                             </div>
                         </div>
                     </div>
@@ -52,34 +67,34 @@ const MyBookings = ({ bookedEvent }) => {
                             <div className="card-title">
 
                                 <div className='bg-yellow-400 text-3xl p-6 rounded-full mr-4'>
-                                <FaMapMarkerAlt></FaMapMarkerAlt>
+                                    <FaMapMarkerAlt></FaMapMarkerAlt>
                                 </div>
                                 <div>
                                     <p className='text-slate-400'>event location</p>
-                                <p className='text-3xl font-bold'>{venue}</p>
+                                    <p className='text-3xl font-bold'>{venue}</p>
                                 </div>
-                                
-                                
+
+
+                            </div>
+                            <div className='flex items-center mt-4 text-lg'>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
                                 </div>
-                            <div className='flex items-center mt-4 text-lg'>
-                            <div className='bg-yellow-400 p-1 rounded-full text-white'>
-                                <FaArrowRight></FaArrowRight>
-                            </div>
-                            <p className='ml-4'>City : {city}</p>
+                                <p className='ml-4'>City : {city}</p>
                             </div>
                             <div className='flex items-center mt-4 text-lg'>
-                            <div className='bg-yellow-400 p-1 rounded-full text-white'>
-                                <FaArrowRight></FaArrowRight>
-                            </div>
-                            <p className='ml-4'>Date : {date}</p>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
+                                </div>
+                                <p className='ml-4'>Date : {date}</p>
                             </div>
                             <div className='flex items-center mt-4 text-lg'>
-                            <div className='bg-yellow-400 p-1 rounded-full text-white'>
-                                <FaArrowRight></FaArrowRight>
+                                <div className='bg-yellow-400 p-1 rounded-full text-white'>
+                                    <FaArrowRight></FaArrowRight>
+                                </div>
+                                <p className='ml-4'>Time : {time} [EST]</p>
                             </div>
-                            <p className='ml-4'>Time : {time} [EST]</p>
-                            </div>
-                            
+
                         </div>
                     </div>
                 </div>
