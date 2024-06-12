@@ -39,7 +39,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
-                    <div className='banner' style={{ backgroundImage: `url(${banner2})` }}>
+                    <div className='banner text-white' style={{ backgroundImage: `url(${banner2})` }}>
                         <Navbar></Navbar>
                         <center>
                             <BannerText></BannerText>
@@ -54,7 +54,9 @@ const Home = () => {
 
             <div>
                 <center>
-                    <h2 className='mb-20'>UPCOMING EVENTS</h2>
+                    <h2 className='mb-10 mt-20 text-xl tracking-[8px]'>UPCOMING EVENTS</h2>
+
+                    <h2 className='mb-20 text-5xl'>Latest <span className='font-bold'>Awesome Events</span> </h2>
                     <LatestEvents></LatestEvents>
                 </center>
             </div>
@@ -74,8 +76,8 @@ const Home = () => {
             </div>
 
             <div>
-                <h2 className='text-center text-5xl mb-10 tracking-wider'>Our Services</h2>
-                <h2 className='text-7xl'>Euphoria <span>Expertise</span></h2>
+                <h2 className='text-center text-3xl mb-5 mt-20 tracking-widest text-slate-500'>Our Services</h2>
+                <h2 className='text-5xl mb-20 text-center'>Euphoria <span className='font-bold'>Expertise</span></h2>
 
                 <div className='grid lg:grid-cols-2 lg:w-8/12 mx-auto h-full gap-10'>
                     {myServices && myServices.events ? (

@@ -22,7 +22,8 @@ const Services = ({service}) => {
                     </div>
                     <div className="card-actions justify-center mt-auto">
                         <Link className='w-full' to={`/event/${id}`}>
-                        <button className="btn bg-slate-100 border-none w-full">Details</button>
+                        <button className="btn bg-slate-100 transition-colors duration-500  hover:bg-gradient-to-tr hover:from-orange-300 hover:to-orange-500 border-none w-full hover:text-white font-bold font-poppins tracking-wide
+                          ">DETAILS</button>
                         </Link>
                     </div>
                 </div>

@@ -1,12 +1,19 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useState } from 'react';
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import React, { createContext, useEffect, useState } from 'react';
+import app from '../firebase/firebase.config';
 
 
 
 
 export const AuthContex = createContext(null)
+const auth = getAuth(app)
+const provider = new GoogleAuthProvider()
 
 const AuthProviders = ({children}) => {
+    
+    const [user,setUser] = useState()
+    const [name,setName] = useState('')
 
     const [booked,setBooked] = useState([])
 
@@ -38,6 +45,39 @@ const AuthProviders = ({children}) => {
     }
 
 
+    //firebase authentications
+
+    const googleLogin = ()=>{
+       return signInWithPopup(auth,provider)
+
+    }
+
+    const createUser = (email,password,name)=>{
+        setName(name)
+        return createUserWithEmailAndPassword(auth,email,password)
+    }
+
+    const logIn = (email,password)=>{
+
+        
+        return signInWithEmailAndPassword(auth,email,password)
+    }
+
+    const logOut = () =>{
+        return signOut(auth)
+    }
+
+    useEffect(()=>{
+        const unSubscribe = onAuthStateChanged(auth,currentUser=>{
+            console.log('user in auth state changed');
+            
+            setUser(currentUser)
+            
+        })
+        return ()=>{
+            unSubscribe();
+        }
+    },[])
 
 
 
@@ -47,7 +87,7 @@ const AuthProviders = ({children}) => {
 
 
 
-    const authInfo = {booked,handleBooking,handleCancelBooking}
+    const authInfo = {user,booked,handleBooking,handleCancelBooking,googleLogin,createUser,logIn,logOut,name}
 
     return (
         <AuthContex.Provider value={authInfo}>

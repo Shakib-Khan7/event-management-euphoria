@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import {  Link } from 'react-router-dom';
 import ActiveLink from './activeLink/ActiveLink';
+import { AuthContex } from '../providers/AuthProviders';
+
+import userPicture from '../../src/assets/services/user.png'
 
 const Navbar = () => {
+    const {user,logOut,name} = useContext(AuthContex)
+
+    console.log(user);
+
+    if(user){
+        user.displayName = name
+    }
+
+    
+
+    const handleLogOut = () =>{
+        logOut()
+        .then()
+        .catch()
+    }
+
+
     return (
         <div className=''>
             <center><div className="navbar">
@@ -32,22 +52,34 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li className='text-xl'>
+                        <li className='text-md'>
                             <Link to='/'>Home</Link>
                         </li>
-                        <li className='text-xl'>
+                        <li className='text-md'>
                             <Link to='/login'>Login</Link>
                         </li>
-                        <li className='text-xl'>
+                        <li className='text-md'>
                             <Link to='/register'>Sign Up</Link>
                         </li>
-                        <li className='text-xl'>
+                        <li className='text-md'>
                             <Link to='/mybookings'>My Bookings</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+
+                    {
+                        user && <div className="w-10 rounded-full mr-3">
+                        <img className='rounded-full' alt="Tailwind CSS Navbar component" src={userPicture} />
+                    </div>
+                    }
+                    {!user ? <Link to='/login'>
+                    <button className='btn w-28'>Login</button>
+                    </Link> : <button onClick={handleLogOut} className='btn w-28'>
+                        Sign Out
+                        
+                        
+                        </button>}
                 </div>
             </div></center>
         </div>

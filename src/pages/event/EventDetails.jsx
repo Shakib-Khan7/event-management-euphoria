@@ -64,9 +64,12 @@ const EventDetails = () => {
             </div>
 
             <div className='w-full relative' style={{ backgroundColor: 'black' }} >
-                <img className='w-full h-[500px] opacity-70' src="https://i.ibb.co/gDrhqVt/andreas-gabler-XEW-Wd4240c-unsplash.jpg" alt="" />
+                <img className='w-full h-[500px] opacity-50' src="https://i.ibb.co/gDrhqVt/andreas-gabler-XEW-Wd4240c-unsplash.jpg" alt="" />
 
-                <p className='absolute top-0'>sadsad</p>
+                <div className='text-white'>
+                <p className='absolute top-20 left-[35%] lg:top-32 lg:left-[42%] text-2xl tracking-[12px]'>EVENT SINGLE</p>
+                <h2 className=' absolute top-52 left-5 lg:top-[40%] lg:left-[30%] text-3xl lg:text-6xl'>EUPHORIA <span className='text-orange-500 font-bold'>EVENT DETAILS</span></h2>
+                </div>
             </div>
 
 
@@ -83,7 +86,7 @@ const EventDetails = () => {
                         </div>
                     </div>
 
-                    <div className='grid lg:grid-cols-3 gap-5 '>
+                    <div className='grid lg:grid-cols-3 gap-5 mt-5 lg:mt-0 '>
                         <div className='h-20 w-full bg-slate-100 flex items-center font-poppins rounded-xl '>
                             <div className='h-12 w-12 bg-orange-300 ml-5  rounded-full relative'>
                                 <FaRegCalendar className='text-2xl text-white absolute left-3 top-2' ></FaRegCalendar>
