@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable no-constant-condition */
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { AuthContex } from '../../providers/AuthProviders';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+    const [emailError, setEmailError] = useState()
+    const [passwordError, setpasswordError] = useState()
 
-    const {createUser} = useContext(AuthContex)
+    const { createUser } = useContext(AuthContex)
+
+    const navigate = useNavigate()
 
 
 
@@ -18,28 +24,46 @@ const Register = () => {
     const handleRegister = e => {
         e.preventDefault();
         console.log(e.currentTarget);
-        
+        setEmailError('');
+        setpasswordError('')
+
         const form = new FormData(e.currentTarget)
         const name = form.get('name')
         const photo = form.get('photo')
         const email = form.get('email')
         const password = form.get('password')
-        console.log(name,email,password,photo);
+
+        if(!/(?=.*[A-Z].*[A-Z])/.test(password)){
+            setpasswordError('Password must contain two uppercase letters')
+            return;
+        }
+
+
+        console.log(name, email, password, photo);
 
         //create user
 
-        createUser(email,password,name)
-        .then(result=>{
-            
-            
-            
-            console.log(result.user);
-        })
-        .catch(error=>{
-            console.log(error.message);
+        createUser(email, password, name)
+            .then(result => {
+                toast.success('User Created & logged in')
+                navigate('/')
+                
 
-            
-        })
+
+
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+                if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+                    setEmailError('Email already in use')
+                }
+                else {
+                    setpasswordError('Password must be longer than 6 characters')
+                }
+
+
+            })
 
     }
 
@@ -88,7 +112,7 @@ const Register = () => {
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                         <center>
-                           
+                        {emailError ? <p className='text-red-500'>{emailError}</p> : <p className='text-red-500'>{passwordError}</p>}
                         </center>
                     </div>
                     <div className="form-control mt-6">

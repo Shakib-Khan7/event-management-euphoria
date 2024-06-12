@@ -9,6 +9,7 @@ import { FaGolfBall, FaRegHandshake } from 'react-icons/fa';
 import AboutUsBriefly from '../../components/AboutUsBriefly';
 import Services from '../../components/Services';
 import { json, useLoaderData } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 const Home = () => {
 
@@ -25,6 +26,7 @@ const Home = () => {
 
     return (
         <div className=''>
+            
             <div className="carousel w-full relative ">
                 <div id="slide1" className="carousel-item relative w-full">
                     <div className='banner text-white' style={{ backgroundImage: `url(${banner})` }}>

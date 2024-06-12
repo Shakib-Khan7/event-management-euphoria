@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContex } from '../../providers/AuthProviders';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Login = () => {
     const {googleLogin,logIn,name} = useContext(AuthContex)
+    const [error, setError] = useState()
 
     const navigate = useNavigate()
+    const location = useLocation()
 
 
     const handleLogin = e => {
@@ -23,12 +26,16 @@ const Login = () => {
             .then(result => {
                 
                 console.log(result);
-                navigate('/')
+                
+                navigate(location?.state ? location.state : '/')
+                toast.success('Login Successful')
+                
                 
                 
             })
             .catch(error => {
                 console.log(error);
+                setError('Invalid Email or Password')
                 
             })
 
@@ -67,6 +74,8 @@ const Login = () => {
         googleLogin()
         .then(result=>{
             console.log(result.user);
+            toast.success('Login Successful')
+            navigate(location?.state ? location.state : '/')
         })
         .catch(err=>{
             console.log(err);
@@ -76,6 +85,7 @@ const Login = () => {
 
     return (
         <div>
+            <Toaster></Toaster>
             <Navbar></Navbar>
             <hr />
             <div className=''>
@@ -99,7 +109,7 @@ const Login = () => {
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                         <center>
-                            
+                            {error && <p className='text-red-600'>{error}</p>}
                         </center>
                     </div>
                     <div className="form-control mt-6">
@@ -111,12 +121,12 @@ const Login = () => {
 
                 <div className='text-center mt-2'>
                     <p>Or</p>
-                     <button onClick={handleGoogleLogin} className='btn btn-outline w-1/3 mt-3'>
+                     <button onClick={handleGoogleLogin} className='btn btn-outline lg:w-1/3 mt-3'>
                 <FaGoogle></FaGoogle>
                 Login With Google
             </button>
             <br />
-            <button className='btn btn-outline w-1/3 mt-2'>
+            <button className='btn btn-outline lg:w-1/3 mt-2'>
                 <FaGithub></FaGithub>
                 Login With Github
             </button>

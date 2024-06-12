@@ -5,6 +5,7 @@ import EventDetails from "../pages/event/EventDetails";
 import Bookings from "../pages/bookings/Bookings";
 import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -25,12 +26,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/event/:id',
-        element: <EventDetails></EventDetails>,
+        element: <PrivateRoute><EventDetails></EventDetails></PrivateRoute>,
 
       },
       {
         path: '/mybookings',
-        element: <Bookings></Bookings>
+        element: <PrivateRoute><Bookings></Bookings></PrivateRoute>
       },
 
     ]

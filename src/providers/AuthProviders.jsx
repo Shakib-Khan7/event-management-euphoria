@@ -2,6 +2,7 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
+import toast from 'react-hot-toast';
 
 
 
@@ -14,7 +15,7 @@ const AuthProviders = ({children}) => {
     
     const [user,setUser] = useState()
     const [name,setName] = useState('')
-
+    const [loading,setLoading] = useState(true)
     const [booked,setBooked] = useState([])
 
     const handleBooking = (event) =>{
@@ -23,6 +24,7 @@ const AuthProviders = ({children}) => {
 
         if(!exists){
             newBooking = [...booked, event]
+            toast.success('Booking Confirmed')
             
             
 
@@ -30,6 +32,7 @@ const AuthProviders = ({children}) => {
         else{
             const remaining = booked.filter(e=>e.id !==event.id);
             newBooking = [...remaining,exists]
+            toast.error('Already Booked')
             
             
         }
@@ -42,28 +45,33 @@ const AuthProviders = ({children}) => {
 
         const remaining = booked.filter(e=>e.id !== event.id )
         setBooked(remaining)
+        toast.error('Booking Canceled')
     }
 
 
     //firebase authentications
 
     const googleLogin = ()=>{
+        setLoading(true)
        return signInWithPopup(auth,provider)
 
     }
 
     const createUser = (email,password,name)=>{
+        setLoading(true)
         setName(name)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     const logIn = (email,password)=>{
+        setLoading(true)
 
         
         return signInWithEmailAndPassword(auth,email,password)
     }
 
     const logOut = () =>{
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -72,6 +80,7 @@ const AuthProviders = ({children}) => {
             console.log('user in auth state changed');
             
             setUser(currentUser)
+            setLoading(false)
             
         })
         return ()=>{
@@ -87,7 +96,7 @@ const AuthProviders = ({children}) => {
 
 
 
-    const authInfo = {user,booked,handleBooking,handleCancelBooking,googleLogin,createUser,logIn,logOut,name}
+    const authInfo = {user,booked,loading,handleBooking,handleCancelBooking,googleLogin,createUser,logIn,logOut,name}
 
     return (
         <AuthContex.Provider value={authInfo}>
